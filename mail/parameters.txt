@@ -1,0 +1,5 @@
+EER =1
+diffrentiability = 5.050963598092714
+finger weight =0.4
+iris weight = 0.6
+OP = 3
