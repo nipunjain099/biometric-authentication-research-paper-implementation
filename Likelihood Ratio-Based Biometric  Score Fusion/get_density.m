@@ -1,0 +1,15 @@
+function [score] = get_density(k,x,mn,cov)
+x(:,1) = x(:,1)-mn(1,1);
+x(:,2) = x(:,2)-mn(1,2);
+x=transpose(x);
+t1=(2*pi)^(-k/2);
+t2=det(cov);
+t2=t2^(-1/2);
+t1=t1*t2;
+t2=transpose(x);
+t3=inv(cov);
+t2=t2*t3;
+t2=t2*x;
+t2=t2*(-1/2);
+t1=t1* exp(t2);
+score=t1;
