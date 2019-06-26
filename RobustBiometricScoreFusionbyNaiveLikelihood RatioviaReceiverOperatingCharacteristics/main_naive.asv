@@ -1,0 +1,32 @@
+feature=load('score_finger');
+fns=feature.score_finger;
+feature= load('score_iris');
+irs= feature.sim;
+feature= load('score_face');
+fcs=feature.score_face;
+k=3;
+for i=1:100
+    for j=1:100
+        if i==j
+            gen(cg,1)=irs(i,j);
+            gen(cg,2)=fns(i,j);
+            gen(cg,3)=fcs(i,j);
+            cg=cg+1;
+        else
+            imp(ci,1)=irs(i,j);
+            imp(ci,2)=fns(i,j);
+            imp(ci,3)=fgs(i,j);
+            ci=ci+1;
+        end
+    end
+end
+
+genmean= mean(gen);
+impmean = mean(imp);
+gencov = std(gen);
+impcov = std(imp);
+for i=1:gen
+    for j=1:k
+        nm = get_density(gen(i,j),genmean,gencov);
+        dn = get_density(gen(i,j),impmean,impcov);
+        naive_gen

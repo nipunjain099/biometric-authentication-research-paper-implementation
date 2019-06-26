@@ -1,0 +1,11 @@
+function [score] = get_density(x,mn,cov)
+x = x-mn;
+t1=(2*pi)^(-1/2);
+t2=cov;
+t2=t2^(-1);
+t1=t1*t2;
+cov=cov^2;
+t3= x^2 / (2*cov);
+t3=t3*(-1);
+t1= t1*exp(t3);
+score=t1;
